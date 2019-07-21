@@ -1,0 +1,14 @@
+{
+  "name": "gist-recreate",
+  "version": "2019.5.22",
+  "description": "execute command from every dir",
+  "keywords": [
+    "exec",
+    "dir"
+  ],
+  "homepage": "https://github.com/looking-for-a-job/gist-recreate",
+  "license": "Unlicense",
+  "bin": {
+    "gist-recreate": "./scripts/gist-recreate"
+  }
+}
