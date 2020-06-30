@@ -5,10 +5,10 @@
 
 usage() {
     echo "usage: $(basename $0) path" 1>&2
-    [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; exit
+    [ "$1" = "-h" ] || [ "$1" = "--help" ]; exit
 }
 
-[[ $1 == "-h" ]] || [[ $1 == "--help" ]] && usage "$@"
+[ "$1" = "-h" ] || [ "$1" = "--help" ] && usage "$@"
 
 [[ $# != 1 ]] && usage
 
@@ -16,7 +16,7 @@ cd "$1" || exit
 
 ! [ -e .git ] && echo "ERROR ($PWD): .git NOT EXISTS" 1>&2 && exit 1
 url="$(git remote -v | head -1 | awk '{print $2}')"
-[[ -z "$url" ]] && echo "SKIP ($PWD): gist remote unknown" 1>&2 && exit 1
+[[ -z "$url" ]] && echo "ERROR ($PWD): gist remote unknown" 1>&2 && exit 1
 
 rm -fr .git
 git init || exit
